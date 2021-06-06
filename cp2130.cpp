@@ -1,4 +1,4 @@
-/* CP2130 class for Qt - Version 1.1.0
+/* CP2130 class for Qt - Version 1.1.1
    Copyright (c) 2021 Samuel Lourenço
 
    This library is free software: you can redistribute it and/or modify it
@@ -853,7 +853,7 @@ int CP2130::open(quint16 vid, quint16 pid, const QString &serial)
                 libusb_exit(context_);  // Deinitialize libusb
                 retval = 2;
             } else {  // If the device is successfully opened and a handle obtained
-                if (libusb_kernel_driver_active(handle_, 0) != 0) {  // If a kernel driver is active on the interface
+                if (libusb_kernel_driver_active(handle_, 0) == 1) {  // If a kernel driver is active on the interface
                     libusb_detach_kernel_driver(handle_, 0);  // Detach the kernel driver
                     kernelAttached_ = true;  // Flag that the kernel driver was attached
                 } else {
