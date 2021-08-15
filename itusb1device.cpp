@@ -25,8 +25,6 @@
 #include "itusb1device.h"
 
 // Definitions
-const quint16 VID = 0x10C4;  // USB vendor ID
-const quint16 PID = 0x8C96;  // USB product ID
 const size_t N_SAMPLES = 5;  // Number of samples per measurement, applicable to getCurrent()
 
 // Private convenience function that is used to get the raw current measurement reading from the LTC2312 ADC
