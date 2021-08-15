@@ -1,4 +1,5 @@
-/* ITUSB1 device class for Qt - Version 2.0.0
+/* ITUSB1 device class for Qt - Version 3.0.0
+   Requires CP2130 class for Qt version 2.0.0 or later
    Copyright (c) 2020-2021 Samuel Lourenço
 
    This library is free software: you can redistribute it and/or modify it
@@ -31,30 +32,31 @@ class ITUSB1Device
 private:
     CP2130 cp2130_;
 
-    quint16 getRawCurrent(int &errcnt, QString &errstr) const;
+    quint16 getRawCurrent(int &errcnt, QString &errstr);
 
 public:
     ITUSB1Device();
 
-    void attach(int &errcnt, QString &errstr) const;
-    void detach(int &errcnt, QString &errstr) const;
-    float getCurrent(int &errcnt, QString &errstr) const;
-    QString getManufacturerDesc(int &errcnt, QString &errstr) const;
-    bool getOvercurrentStatus(int &errcnt, QString &errstr) const;
-    QString getProductDesc(int &errcnt, QString &errstr) const;
-    QString getSerialDesc(int &errcnt, QString &errstr) const;
-    CP2130::USBConfig getUSBConfig(int &errcnt, QString &errstr) const;
-    bool getUSBDataStatus(int &errcnt, QString &errstr) const;
-    bool getUSBPowerStatus(int &errcnt, QString &errstr) const;
+    bool disconnected() const;
     bool isOpen() const;
-    void reset(int &errcnt, QString &errstr) const;
-    void setup(int &errcnt, QString &errstr) const;
-    void switchUSB(bool value, int &errcnt, QString &errstr) const;
-    void switchUSBData(bool value, int &errcnt, QString &errstr) const;
-    void switchUSBPower(bool value, int &errcnt, QString &errstr) const;
 
+    void attach(int &errcnt, QString &errstr);
     void close();
+    void detach(int &errcnt, QString &errstr);
+    float getCurrent(int &errcnt, QString &errstr);
+    QString getManufacturerDesc(int &errcnt, QString &errstr);
+    bool getOvercurrentStatus(int &errcnt, QString &errstr);
+    QString getProductDesc(int &errcnt, QString &errstr);
+    QString getSerialDesc(int &errcnt, QString &errstr);
+    CP2130::USBConfig getUSBConfig(int &errcnt, QString &errstr);
+    bool getUSBDataStatus(int &errcnt, QString &errstr);
+    bool getUSBPowerStatus(int &errcnt, QString &errstr);
     int open(const QString &serial);
+    void reset(int &errcnt, QString &errstr);
+    void setup(int &errcnt, QString &errstr);
+    void switchUSB(bool value, int &errcnt, QString &errstr);
+    void switchUSBData(bool value, int &errcnt, QString &errstr);
+    void switchUSBPower(bool value, int &errcnt, QString &errstr);
 
     static QStringList listDevices(int &errcnt, QString &errstr);
 };
