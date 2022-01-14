@@ -1,4 +1,4 @@
-/* ITUSB1 device class for Qt - Version 3.2.0
+/* ITUSB1 device class for Qt - Version 3.1.0
    Requires CP2130 class for Qt version 2.0.0 or later
    Copyright (c) 2020-2021 Samuel Lourenço
 
@@ -23,15 +23,12 @@
 #define ITUSB1DEVICE_H
 
 // Includes
-#include <QObject>
 #include <QString>
 #include <QStringList>
 #include "cp2130.h"
 
-class ITUSB1Device : public QObject  // Inherits from QObject since version 3.2.0
+class ITUSB1Device
 {
-    Q_OBJECT
-
 private:
     CP2130 cp2130_;
 
@@ -73,10 +70,6 @@ public:
 
     static QString hardwareRevision(const CP2130::USBConfig &config);
     static QStringList listDevices(int &errcnt, QString &errstr);
-
-signals:
-    void switchedUSBData();
-    void switchedUSBPower();
 };
 
 #endif  // ITUSB1DEVICE_H
