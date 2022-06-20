@@ -1,4 +1,4 @@
-/* ITUSB1 device class for Qt - Version 3.3.1
+/* ITUSB1 device class for Qt - Version 3.3.2
    Requires CP2130 class for Qt version 2.1.0 or later
    Copyright (c) 2020-2022 Samuel Lourenço
 
